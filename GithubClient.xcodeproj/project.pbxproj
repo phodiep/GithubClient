@@ -8,11 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		1D4A0D361A6DC03C0057C68B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4A0D351A6DC03C0057C68B /* AppDelegate.swift */; };
-		1D4A0D381A6DC03C0057C68B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4A0D371A6DC03C0057C68B /* ViewController.swift */; };
 		1D4A0D3B1A6DC03C0057C68B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D4A0D391A6DC03C0057C68B /* Main.storyboard */; };
 		1D4A0D3D1A6DC03C0057C68B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D4A0D3C1A6DC03C0057C68B /* Images.xcassets */; };
 		1D4A0D401A6DC03C0057C68B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D4A0D3E1A6DC03C0057C68B /* LaunchScreen.xib */; };
 		1D4A0D4C1A6DC03C0057C68B /* GithubClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4A0D4B1A6DC03C0057C68B /* GithubClientTests.swift */; };
+		1D4A0D591A6DC1A80057C68B /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4A0D581A6DC1A80057C68B /* Repository.swift */; };
+		1D4A0D5B1A6DC5650057C68B /* SearchRepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4A0D5A1A6DC5650057C68B /* SearchRepositoryViewController.swift */; };
+		1D4A0D5D1A6DC5A20057C68B /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4A0D5C1A6DC5A20057C68B /* NetworkController.swift */; };
+		1D4A0D5F1A6DCBCA0057C68B /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4A0D5E1A6DCBCA0057C68B /* MenuViewController.swift */; };
+		1D4A0D611A6DD74D0057C68B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4A0D601A6DD74D0057C68B /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,13 +33,17 @@
 		1D4A0D301A6DC03C0057C68B /* GithubClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D4A0D341A6DC03C0057C68B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D4A0D351A6DC03C0057C68B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1D4A0D371A6DC03C0057C68B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1D4A0D3A1A6DC03C0057C68B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1D4A0D3C1A6DC03C0057C68B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1D4A0D3F1A6DC03C0057C68B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		1D4A0D451A6DC03C0057C68B /* GithubClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GithubClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D4A0D4A1A6DC03C0057C68B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D4A0D4B1A6DC03C0057C68B /* GithubClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubClientTests.swift; sourceTree = "<group>"; };
+		1D4A0D581A6DC1A80057C68B /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		1D4A0D5A1A6DC5650057C68B /* SearchRepositoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchRepositoryViewController.swift; sourceTree = "<group>"; };
+		1D4A0D5C1A6DC5A20057C68B /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
+		1D4A0D5E1A6DCBCA0057C68B /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		1D4A0D601A6DD74D0057C68B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,8 +89,6 @@
 				1D4A0D561A6DC0530057C68B /* View */,
 				1D4A0D551A6DC0480057C68B /* Model */,
 				1D4A0D351A6DC03C0057C68B /* AppDelegate.swift */,
-				1D4A0D371A6DC03C0057C68B /* ViewController.swift */,
-				1D4A0D391A6DC03C0057C68B /* Main.storyboard */,
 				1D4A0D3C1A6DC03C0057C68B /* Images.xcassets */,
 				1D4A0D3E1A6DC03C0057C68B /* LaunchScreen.xib */,
 				1D4A0D331A6DC03C0057C68B /* Supporting Files */,
@@ -118,6 +124,8 @@
 		1D4A0D551A6DC0480057C68B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1D4A0D581A6DC1A80057C68B /* Repository.swift */,
+				1D4A0D601A6DD74D0057C68B /* User.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -125,6 +133,7 @@
 		1D4A0D561A6DC0530057C68B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1D4A0D391A6DC03C0057C68B /* Main.storyboard */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -132,6 +141,9 @@
 		1D4A0D571A6DC05A0057C68B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1D4A0D5A1A6DC5650057C68B /* SearchRepositoryViewController.swift */,
+				1D4A0D5C1A6DC5A20057C68B /* NetworkController.swift */,
+				1D4A0D5E1A6DCBCA0057C68B /* MenuViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -236,7 +248,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D4A0D381A6DC03C0057C68B /* ViewController.swift in Sources */,
+				1D4A0D5D1A6DC5A20057C68B /* NetworkController.swift in Sources */,
+				1D4A0D5F1A6DCBCA0057C68B /* MenuViewController.swift in Sources */,
+				1D4A0D611A6DD74D0057C68B /* User.swift in Sources */,
+				1D4A0D5B1A6DC5650057C68B /* SearchRepositoryViewController.swift in Sources */,
+				1D4A0D591A6DC1A80057C68B /* Repository.swift in Sources */,
 				1D4A0D361A6DC03C0057C68B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
