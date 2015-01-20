@@ -16,11 +16,13 @@ class SearchRepositoryViewController: UIViewController, UITableViewDataSource, U
     var networkController: NetworkController!
     var repositories: [Repository]?
     
+    
     // MARK: ViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.networkController = NetworkController()
+        self.networkController = NetworkController.sharedInstance //pull shared instance of network controller
+        
         self.tableView.dataSource = self
         self.searchBar.delegate = self
 
@@ -28,11 +30,18 @@ class SearchRepositoryViewController: UIViewController, UITableViewDataSource, U
 
     //MARK: UITableViewDataSource
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        if let repoCount = self.repositories?.count {
+            return self.repositories!.count
+        } else {
+            return 0
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("REPO_CELL", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("REPO_CELL", forIndexPath: indexPath) as RepositoryCell
+        
+        cell.userLabel.text = self.repositories![indexPath.row].user.login
+        cell.repoNameLabel.text = self.repositories![indexPath.row].fullName
         
         return cell
     }
@@ -40,7 +49,7 @@ class SearchRepositoryViewController: UIViewController, UITableViewDataSource, U
     
     //MARK: UISearchBarDelegate
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        searchBar.resignFirstResponder() //hides keyboard
+
 
         self.networkController.fetchRepositoriesForSearchTerm(searchBar.text, callback: { (repos, error) -> () in
             if error == nil && repos != nil {
@@ -48,6 +57,7 @@ class SearchRepositoryViewController: UIViewController, UITableViewDataSource, U
                 self.tableView.reloadData()
             }
         })
+        searchBar.resignFirstResponder() //hides keyboard
     }
 
 

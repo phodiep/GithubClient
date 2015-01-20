@@ -17,6 +17,8 @@
 		1D4A0D5D1A6DC5A20057C68B /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4A0D5C1A6DC5A20057C68B /* NetworkController.swift */; };
 		1D4A0D5F1A6DCBCA0057C68B /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4A0D5E1A6DCBCA0057C68B /* MenuViewController.swift */; };
 		1D4A0D611A6DD74D0057C68B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4A0D601A6DD74D0057C68B /* User.swift */; };
+		1D9C55CF1A6EFACA000CBA0D /* RepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9C55CE1A6EFACA000CBA0D /* RepositoryCell.swift */; };
+		1D9C55D11A6F0A72000CBA0D /* SearchUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9C55D01A6F0A72000CBA0D /* SearchUserViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		1D4A0D5C1A6DC5A20057C68B /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		1D4A0D5E1A6DCBCA0057C68B /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		1D4A0D601A6DD74D0057C68B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1D9C55CE1A6EFACA000CBA0D /* RepositoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryCell.swift; sourceTree = "<group>"; };
+		1D9C55D01A6F0A72000CBA0D /* SearchUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchUserViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				1D4A0D391A6DC03C0057C68B /* Main.storyboard */,
+				1D9C55CE1A6EFACA000CBA0D /* RepositoryCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -144,6 +149,7 @@
 				1D4A0D5A1A6DC5650057C68B /* SearchRepositoryViewController.swift */,
 				1D4A0D5C1A6DC5A20057C68B /* NetworkController.swift */,
 				1D4A0D5E1A6DCBCA0057C68B /* MenuViewController.swift */,
+				1D9C55D01A6F0A72000CBA0D /* SearchUserViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -249,9 +255,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D4A0D5D1A6DC5A20057C68B /* NetworkController.swift in Sources */,
+				1D9C55CF1A6EFACA000CBA0D /* RepositoryCell.swift in Sources */,
 				1D4A0D5F1A6DCBCA0057C68B /* MenuViewController.swift in Sources */,
 				1D4A0D611A6DD74D0057C68B /* User.swift in Sources */,
 				1D4A0D5B1A6DC5650057C68B /* SearchRepositoryViewController.swift in Sources */,
+				1D9C55D11A6F0A72000CBA0D /* SearchUserViewController.swift in Sources */,
 				1D4A0D591A6DC1A80057C68B /* Repository.swift in Sources */,
 				1D4A0D361A6DC03C0057C68B /* AppDelegate.swift in Sources */,
 			);
@@ -447,6 +455,7 @@
 				1D4A0D511A6DC03C0057C68B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1D4A0D521A6DC03C0057C68B /* Build configuration list for PBXNativeTarget "GithubClientTests" */ = {
 			isa = XCConfigurationList;
@@ -455,6 +464,7 @@
 				1D4A0D541A6DC03C0057C68B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

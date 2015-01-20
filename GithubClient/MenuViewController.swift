@@ -10,9 +10,13 @@ import UIKit
 
 class MenuViewController: UITableViewController {
 
+    var networkController: NetworkController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.networkController = NetworkController.sharedInstance
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -20,6 +24,14 @@ class MenuViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        if self.networkController.accessToken == nil {
+            self.networkController.requestAccessToken()
+        }
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
