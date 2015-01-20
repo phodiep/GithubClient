@@ -50,7 +50,6 @@ class SearchRepositoryViewController: UIViewController, UITableViewDataSource, U
     //MARK: UISearchBarDelegate
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
 
-
         self.networkController.fetchRepositoriesForSearchTerm(searchBar.text, callback: { (repos, error) -> () in
             if error == nil && repos != nil {
                 self.repositories = repos!

@@ -19,6 +19,7 @@
 		1D4A0D611A6DD74D0057C68B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4A0D601A6DD74D0057C68B /* User.swift */; };
 		1D9C55CF1A6EFACA000CBA0D /* RepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9C55CE1A6EFACA000CBA0D /* RepositoryCell.swift */; };
 		1D9C55D11A6F0A72000CBA0D /* SearchUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9C55D01A6F0A72000CBA0D /* SearchUserViewController.swift */; };
+		1D9C55D31A6F0ECD000CBA0D /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9C55D21A6F0ECD000CBA0D /* UserCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		1D4A0D601A6DD74D0057C68B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1D9C55CE1A6EFACA000CBA0D /* RepositoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryCell.swift; sourceTree = "<group>"; };
 		1D9C55D01A6F0A72000CBA0D /* SearchUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchUserViewController.swift; sourceTree = "<group>"; };
+		1D9C55D21A6F0ECD000CBA0D /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 			children = (
 				1D4A0D391A6DC03C0057C68B /* Main.storyboard */,
 				1D9C55CE1A6EFACA000CBA0D /* RepositoryCell.swift */,
+				1D9C55D21A6F0ECD000CBA0D /* UserCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				1D4A0D5F1A6DCBCA0057C68B /* MenuViewController.swift in Sources */,
 				1D4A0D611A6DD74D0057C68B /* User.swift in Sources */,
 				1D4A0D5B1A6DC5650057C68B /* SearchRepositoryViewController.swift in Sources */,
+				1D9C55D31A6F0ECD000CBA0D /* UserCell.swift in Sources */,
 				1D9C55D11A6F0A72000CBA0D /* SearchUserViewController.swift in Sources */,
 				1D4A0D591A6DC1A80057C68B /* Repository.swift in Sources */,
 				1D4A0D361A6DC03C0057C68B /* AppDelegate.swift in Sources */,

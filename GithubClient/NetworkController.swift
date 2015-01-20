@@ -11,6 +11,7 @@ import UIKit
 class NetworkController {
     
     var urlSession: NSURLSession
+    var imageQueue = NSOperationQueue()
     
     let accessTokenDefaultsKey = "accessToken"
     var accessToken: String?
@@ -118,22 +119,22 @@ class NetworkController {
         dataTask.resume()
     }
     
-    func fetchRepositoriesForUsers(searchUser: String, callback: ([Repository]?, String?) -> () ) {
+    func fetchRepositoriesForUsers(searchUser: String, callback: ([User]?, String?) -> () ) {
         let url = NSURL(string: "https://api.github.com/search/users?q=\(searchUser)" )
 
         let dataTask = self.urlSession.dataTaskWithURL(url!, completionHandler: { (jsonData, response, error) -> Void in
             let urlResponse = response as NSHTTPURLResponse
-            var repos = [Repository]()
+            var users = [User]()
             var errorStr: String?
 
             switch urlResponse.statusCode {
             case 200...299:
                 let jsonDictionary = NSJSONSerialization.JSONObjectWithData(jsonData, options: nil, error: nil) as [String : AnyObject]
-                let repoList = jsonDictionary["items"] as [AnyObject]
-                for repoData in repoList {
-                    let data = repoData as [String: AnyObject]
-                    let repo = Repository(jsonDictionary: data)
-                    repos.append(repo)
+                let userList = jsonDictionary["items"] as [AnyObject]
+                for userData in userList {
+                    let data = userData as [String: AnyObject]
+                    let user = User(userDictionary: data)
+                    users.append(user)
                 }
             case 300...599:
                 errorStr = "\(urlResponse.statusCode)error ... \(error)"
@@ -141,11 +142,24 @@ class NetworkController {
                 errorStr = "default"
             }
             NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-                callback(repos, errorStr)
+                callback(users, errorStr)
             })
         })
         dataTask.resume()
     }
+    
+    
+    func fetchImage(imageURL: String, completionHandler: (UIImage?) -> () ) {
+        self.imageQueue.addOperationWithBlock({ () -> Void in
+            if let imageData = NSData(contentsOfURL: NSURL(string: imageURL)!) {
+                let image = UIImage(data: imageData)
+                NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                    completionHandler(image)
+                })
+            }
+        })
+    }
+
     
     
 }
