@@ -6,27 +6,32 @@
 //  Copyright (c) 2015 Pho Diep. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 
-struct User {
+class User {
     
     var avatarURL: String
-//    var gravatarID: String
-//    var ID: String
+    var avatar: UIImage?
+    var ID: String
     var login: String
-//    var receivedEventsURL: String
-//    var URL: String
+//    var score: String
+    var htmlURL: String
     
     init(userDictionary: [String: AnyObject]) {
         self.avatarURL = userDictionary["avatar_url"] as String
-//        self.gravatarID = userDictionary["gravatar_id"] as String
-//        
-//        let id_int = userDictionary["id"] as Int
-//        self.ID = "\(id_int)"
+        
+        let id_int = userDictionary["id"] as Int
+        self.ID = "\(id_int)"
+        
+//        let score_float = userDictionary["score"] as Float
+//        self.score = "\(score_float)"
         
         self.login = userDictionary["login"] as String
-//        self.receivedEventsURL = userDictionary["received_events_url"] as String
-//        self.URL = userDictionary["url"] as String
+        self.htmlURL = userDictionary["html_url"] as String
+    }
+    
+    func updateAvatarImage(image: UIImage) {
+        self.avatar = image
     }
 }

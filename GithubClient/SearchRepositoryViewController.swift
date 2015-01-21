@@ -13,15 +13,12 @@ class SearchRepositoryViewController: UIViewController, UITableViewDataSource, U
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var tableView: UITableView!
     
-    var networkController: NetworkController!
     var repositories: [Repository]?
     
     
     // MARK: ViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.networkController = NetworkController.sharedInstance //pull shared instance of network controller
         
         self.tableView.dataSource = self
         self.searchBar.delegate = self
@@ -50,7 +47,7 @@ class SearchRepositoryViewController: UIViewController, UITableViewDataSource, U
     //MARK: UISearchBarDelegate
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
 
-        self.networkController.fetchRepositoriesForSearchTerm(searchBar.text, callback: { (repos, error) -> () in
+        NetworkController.sharedInstance.fetchRepositoriesForSearchTerm(searchBar.text, callback: { (repos, error) -> () in
             if error == nil && repos != nil {
                 self.repositories = repos!
                 self.tableView.reloadData()

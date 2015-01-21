@@ -10,12 +10,10 @@ import UIKit
 
 class MenuViewController: UITableViewController {
 
-    var networkController: NetworkController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.networkController = NetworkController.sharedInstance
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -26,8 +24,8 @@ class MenuViewController: UITableViewController {
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        if self.networkController.accessToken == nil {
-            self.networkController.requestAccessToken()
+        if NetworkController.sharedInstance.accessToken == nil {
+            NetworkController.sharedInstance.requestAccessToken()
         }
     }
     

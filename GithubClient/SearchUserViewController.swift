@@ -8,10 +8,9 @@
 
 import UIKit
 
-class SearchUserViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate {
+class SearchUserViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate, UINavigationControllerDelegate {
 
-    var networkController: NetworkController!
-    var users: [User]?
+    var users = [User]()
     
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var collectionView: UICollectionView!
@@ -20,36 +19,61 @@ class SearchUserViewController: UIViewController, UICollectionViewDataSource, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.networkController = NetworkController.sharedInstance
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
         self.searchBar.delegate = self
+        self.navigationController?.delegate = self
         
 
     }
 
     //MARK: UICollectionViewDataSource
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if let userCount = users?.count {
-            return userCount
-        } else {
-            return 0
-        }
+        return self.users.count
     }
     
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = self.collectionView.dequeueReusableCellWithReuseIdentifier("USER_CELL", forIndexPath: indexPath) as UserCell
-        cell.userLabel.text = self.users![indexPath.row].login
-        self.networkController.fetchImage(self.users![indexPath.row].avatarURL, completionHandler: { (image) -> () in
-            cell.userImage.image = image
-        })
+        cell.userLabel.text = self.users[indexPath.row].login
+        
+        if self.users[indexPath.row].avatar == nil {
+            NetworkController.sharedInstance.fetchImage(self.users[indexPath.row].avatarURL, completionHandler: { (image) -> () in
+                cell.userImage.image = self.users[indexPath.row].avatar
+                self.users[indexPath.row].updateAvatarImage(image!)
+                self.collectionView.reloadItemsAtIndexPaths([indexPath])
+            })
+        } else {
+            cell.userImage.image = self.users[indexPath.row].avatar
+        }
+
         return cell
+    }
+    //MARK: UINavigationControllerDelegate
+    
+    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        
+        if toVC is UserDetailViewController {
+            //if seguing to UserDetail
+            return ToUserDetailAnimationController()
+        }
+        return nil //default animation
+    }
+    
+    //MARK: Segue
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier! == "SEGUE_USER" {
+            let indexPathSelected = self.collectionView.indexPathsForSelectedItems()[0].row
+            let userSelected = self.users[indexPathSelected]
+            let userVC = segue.destinationViewController as UserDetailViewController
+            userVC.user = userSelected
+
+        }
     }
     
     //MARK: UISearchBarDelegate
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        self.networkController.fetchRepositoriesForUsers(searchBar.text, callback: { (users, error) -> () in
+        NetworkController.sharedInstance.fetchRepositoriesForUsers(searchBar.text, callback: { (users, error) -> () in
             if error == nil && users != nil {
                 self.users = users!
                 self.collectionView.reloadData()

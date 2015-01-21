@@ -20,6 +20,8 @@
 		1D9C55CF1A6EFACA000CBA0D /* RepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9C55CE1A6EFACA000CBA0D /* RepositoryCell.swift */; };
 		1D9C55D11A6F0A72000CBA0D /* SearchUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9C55D01A6F0A72000CBA0D /* SearchUserViewController.swift */; };
 		1D9C55D31A6F0ECD000CBA0D /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9C55D21A6F0ECD000CBA0D /* UserCell.swift */; };
+		1D9C55D51A6F1B73000CBA0D /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9C55D41A6F1B73000CBA0D /* UserDetailViewController.swift */; };
+		1D9C55D71A7046A9000CBA0D /* ToUserDetailAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9C55D61A7046A9000CBA0D /* ToUserDetailAnimationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,8 @@
 		1D9C55CE1A6EFACA000CBA0D /* RepositoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryCell.swift; sourceTree = "<group>"; };
 		1D9C55D01A6F0A72000CBA0D /* SearchUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchUserViewController.swift; sourceTree = "<group>"; };
 		1D9C55D21A6F0ECD000CBA0D /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		1D9C55D41A6F1B73000CBA0D /* UserDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
+		1D9C55D61A7046A9000CBA0D /* ToUserDetailAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToUserDetailAnimationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +157,8 @@
 				1D4A0D5C1A6DC5A20057C68B /* NetworkController.swift */,
 				1D4A0D5E1A6DCBCA0057C68B /* MenuViewController.swift */,
 				1D9C55D01A6F0A72000CBA0D /* SearchUserViewController.swift */,
+				1D9C55D41A6F1B73000CBA0D /* UserDetailViewController.swift */,
+				1D9C55D61A7046A9000CBA0D /* ToUserDetailAnimationController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -263,9 +269,11 @@
 				1D4A0D611A6DD74D0057C68B /* User.swift in Sources */,
 				1D4A0D5B1A6DC5650057C68B /* SearchRepositoryViewController.swift in Sources */,
 				1D9C55D31A6F0ECD000CBA0D /* UserCell.swift in Sources */,
+				1D9C55D51A6F1B73000CBA0D /* UserDetailViewController.swift in Sources */,
 				1D9C55D11A6F0A72000CBA0D /* SearchUserViewController.swift in Sources */,
 				1D4A0D591A6DC1A80057C68B /* Repository.swift in Sources */,
 				1D4A0D361A6DC03C0057C68B /* AppDelegate.swift in Sources */,
+				1D9C55D71A7046A9000CBA0D /* ToUserDetailAnimationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
