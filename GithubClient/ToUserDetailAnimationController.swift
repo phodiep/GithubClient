@@ -27,6 +27,8 @@ class ToUserDetailAnimationController : NSObject, UIViewControllerAnimatedTransi
         let cellImageSnapshot = cell.userImage.snapshotViewAfterScreenUpdates(false)
         cell.userImage.hidden = true
         cellImageSnapshot.frame = containerView.convertRect(cell.userImage.frame, fromView: cell.userImage.superview)
+        //saved for tranistion back
+        fromVC.transitionFrame = containerView.convertRect(cell.userImage.frame, fromView: cell.userImage.superview)
         
         //init toVC but set to hidden
         toVC.view.frame = transitionContext.finalFrameForViewController(toVC)

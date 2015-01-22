@@ -16,6 +16,9 @@ class NetworkController {
     let accessTokenDefaultsKey = "accessToken"
     var accessToken: String?
     
+
+    
+
     //Singleton
     class var sharedInstance : NetworkController {
         struct Static {
@@ -23,7 +26,6 @@ class NetworkController {
         }
         return Static.instance
     }
-    
     
     init() {
         let ephemeralConfig = NSURLSessionConfiguration.ephemeralSessionConfiguration()

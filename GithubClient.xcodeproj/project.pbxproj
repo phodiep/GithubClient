@@ -22,6 +22,9 @@
 		1D9C55D31A6F0ECD000CBA0D /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9C55D21A6F0ECD000CBA0D /* UserCell.swift */; };
 		1D9C55D51A6F1B73000CBA0D /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9C55D41A6F1B73000CBA0D /* UserDetailViewController.swift */; };
 		1D9C55D71A7046A9000CBA0D /* ToUserDetailAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9C55D61A7046A9000CBA0D /* ToUserDetailAnimationController.swift */; };
+		1D9C55D91A7052B7000CBA0D /* FromUserDetailAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9C55D81A7052B7000CBA0D /* FromUserDetailAnimationController.swift */; };
+		1DA9CCEE1A719B50006112B1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA9CCED1A719B50006112B1 /* Extensions.swift */; };
+		1DA9CCF01A71A380006112B1 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 1DA9CCEF1A71A380006112B1 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +57,9 @@
 		1D9C55D21A6F0ECD000CBA0D /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		1D9C55D41A6F1B73000CBA0D /* UserDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
 		1D9C55D61A7046A9000CBA0D /* ToUserDetailAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToUserDetailAnimationController.swift; sourceTree = "<group>"; };
+		1D9C55D81A7052B7000CBA0D /* FromUserDetailAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FromUserDetailAnimationController.swift; sourceTree = "<group>"; };
+		1DA9CCED1A719B50006112B1 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		1DA9CCEF1A71A380006112B1 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +83,7 @@
 		1D4A0D271A6DC03C0057C68B = {
 			isa = PBXGroup;
 			children = (
+				1DA9CCEF1A71A380006112B1 /* .gitignore */,
 				1D4A0D321A6DC03C0057C68B /* GithubClient */,
 				1D4A0D481A6DC03C0057C68B /* GithubClientTests */,
 				1D4A0D311A6DC03C0057C68B /* Products */,
@@ -136,6 +143,7 @@
 			children = (
 				1D4A0D581A6DC1A80057C68B /* Repository.swift */,
 				1D4A0D601A6DD74D0057C68B /* User.swift */,
+				1DA9CCED1A719B50006112B1 /* Extensions.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -159,6 +167,7 @@
 				1D9C55D01A6F0A72000CBA0D /* SearchUserViewController.swift */,
 				1D9C55D41A6F1B73000CBA0D /* UserDetailViewController.swift */,
 				1D9C55D61A7046A9000CBA0D /* ToUserDetailAnimationController.swift */,
+				1D9C55D81A7052B7000CBA0D /* FromUserDetailAnimationController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -243,6 +252,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DA9CCF01A71A380006112B1 /* .gitignore in Resources */,
 				1D4A0D3B1A6DC03C0057C68B /* Main.storyboard in Resources */,
 				1D4A0D401A6DC03C0057C68B /* LaunchScreen.xib in Resources */,
 				1D4A0D3D1A6DC03C0057C68B /* Images.xcassets in Resources */,
@@ -263,6 +273,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D9C55D91A7052B7000CBA0D /* FromUserDetailAnimationController.swift in Sources */,
 				1D4A0D5D1A6DC5A20057C68B /* NetworkController.swift in Sources */,
 				1D9C55CF1A6EFACA000CBA0D /* RepositoryCell.swift in Sources */,
 				1D4A0D5F1A6DCBCA0057C68B /* MenuViewController.swift in Sources */,
@@ -270,6 +281,7 @@
 				1D4A0D5B1A6DC5650057C68B /* SearchRepositoryViewController.swift in Sources */,
 				1D9C55D31A6F0ECD000CBA0D /* UserCell.swift in Sources */,
 				1D9C55D51A6F1B73000CBA0D /* UserDetailViewController.swift in Sources */,
+				1DA9CCEE1A719B50006112B1 /* Extensions.swift in Sources */,
 				1D9C55D11A6F0A72000CBA0D /* SearchUserViewController.swift in Sources */,
 				1D4A0D591A6DC1A80057C68B /* Repository.swift in Sources */,
 				1D4A0D361A6DC03C0057C68B /* AppDelegate.swift in Sources */,

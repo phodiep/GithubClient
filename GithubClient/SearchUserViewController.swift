@@ -12,6 +12,8 @@ class SearchUserViewController: UIViewController, UICollectionViewDataSource, UI
 
     var users = [User]()
     
+    var transitionFrame: CGRect?
+    
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var collectionView: UICollectionView!
     
@@ -26,7 +28,8 @@ class SearchUserViewController: UIViewController, UICollectionViewDataSource, UI
         
 
     }
-
+    
+    
     //MARK: UICollectionViewDataSource
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.users.count
@@ -49,13 +52,17 @@ class SearchUserViewController: UIViewController, UICollectionViewDataSource, UI
 
         return cell
     }
+        
     //MARK: UINavigationControllerDelegate
-    
     func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
         if toVC is UserDetailViewController {
             //if seguing to UserDetail
             return ToUserDetailAnimationController()
+        }
+        
+        if toVC is SearchUserViewController {
+            return FromUserDetailAnimationController()
         }
         return nil //default animation
     }

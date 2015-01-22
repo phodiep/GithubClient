@@ -24,6 +24,11 @@ class MenuViewController: UITableViewController {
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        
+        //refresh navigationController
+        self.navigationController?.delegate = nil
+
+        // get accessToken if nec
         if NetworkController.sharedInstance.accessToken == nil {
             NetworkController.sharedInstance.requestAccessToken()
         }
