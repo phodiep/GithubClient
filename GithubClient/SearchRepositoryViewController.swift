@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchRepositoryViewController: UIViewController, UITableViewDataSource, UISearchBarDelegate {
+class SearchRepositoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var tableView: UITableView!
@@ -21,6 +21,7 @@ class SearchRepositoryViewController: UIViewController, UITableViewDataSource, U
         super.viewDidLoad()
         
         self.tableView.dataSource = self
+        self.tableView.delegate = self
         self.searchBar.delegate = self
 
     }
@@ -42,7 +43,20 @@ class SearchRepositoryViewController: UIViewController, UITableViewDataSource, U
         
         return cell
     }
+    
+    //MARK: UITableViewDelegate
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier! == "SHOW_WEB" {
+            let indexPathSelected = self.tableView.indexPathForSelectedRow()
+            let repoSelected = self.repositories![indexPathSelected!.row]
+            let webVC = segue.destinationViewController as WebViewController
+            webVC.url = repoSelected.htmlURL
+            
+        }
 
+        
+        
+    }
     
     //MARK: UISearchBarDelegate
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
