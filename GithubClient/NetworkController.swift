@@ -16,6 +16,7 @@ class NetworkController {
     let accessTokenDefaultsKey = "accessToken"
     var accessToken: String?
     
+    let client = Client()
 
     
 
@@ -39,7 +40,7 @@ class NetworkController {
     }
     
     func requestAccessToken() {
-        let url = "https://github.com/login/oauth/authorize?client_id=\(self.clientID)&scope=user,repo"
+        let url = "https://github.com/login/oauth/authorize?client_id=\(self.client.clientID)&scope=user,repo"
         UIApplication.sharedApplication().openURL(NSURL(string: url)!)
     }
     
@@ -47,7 +48,7 @@ class NetworkController {
         let code = url.query
         
         // query as part of url string
-        let oauthURL = "https://github.com/login/oauth/access_token?\(code!)&client_id=\(self.clientID)&client_secret=\(self.clientSecret)"
+        let oauthURL = "https://github.com/login/oauth/access_token?\(code!)&client_id=\(self.client.clientID)&client_secret=\(self.client.clientSecret)"
         let postRequest = NSMutableURLRequest(URL: NSURL(string: oauthURL)!)
         postRequest.HTTPMethod = "POST"
         

@@ -25,6 +25,7 @@
 		1D9C55D91A7052B7000CBA0D /* FromUserDetailAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9C55D81A7052B7000CBA0D /* FromUserDetailAnimationController.swift */; };
 		1DA9CCEE1A719B50006112B1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA9CCED1A719B50006112B1 /* Extensions.swift */; };
 		1DA9CCF01A71A380006112B1 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 1DA9CCEF1A71A380006112B1 /* .gitignore */; };
+		1DA9CCF61A71A804006112B1 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA9CCF51A71A804006112B1 /* Client.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		1D9C55D81A7052B7000CBA0D /* FromUserDetailAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FromUserDetailAnimationController.swift; sourceTree = "<group>"; };
 		1DA9CCED1A719B50006112B1 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		1DA9CCEF1A71A380006112B1 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		1DA9CCF51A71A804006112B1 /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 				1D4A0D581A6DC1A80057C68B /* Repository.swift */,
 				1D4A0D601A6DD74D0057C68B /* User.swift */,
 				1DA9CCED1A719B50006112B1 /* Extensions.swift */,
+				1DA9CCF51A71A804006112B1 /* Client.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				1D4A0D5B1A6DC5650057C68B /* SearchRepositoryViewController.swift in Sources */,
 				1D9C55D31A6F0ECD000CBA0D /* UserCell.swift in Sources */,
 				1D9C55D51A6F1B73000CBA0D /* UserDetailViewController.swift in Sources */,
+				1DA9CCF61A71A804006112B1 /* Client.swift in Sources */,
 				1DA9CCEE1A719B50006112B1 /* Extensions.swift in Sources */,
 				1D9C55D11A6F0A72000CBA0D /* SearchUserViewController.swift in Sources */,
 				1D4A0D591A6DC1A80057C68B /* Repository.swift in Sources */,
