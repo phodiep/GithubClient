@@ -56,5 +56,9 @@ class SearchRepositoryViewController: UIViewController, UITableViewDataSource, U
         searchBar.resignFirstResponder() //hides keyboard
     }
 
+    func searchBar(searchBar: UISearchBar, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        return text.validateForRegex()
+    }
+
 
 }
