@@ -19,7 +19,7 @@ DerivedData
 *.hmap
 *.ipa
 *.xcuserstate
-Client.swift
+*Client.swift
 
 # CocoaPods
 #
