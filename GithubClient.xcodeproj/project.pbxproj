@@ -27,6 +27,8 @@
 		1DA9CCF01A71A380006112B1 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 1DA9CCEF1A71A380006112B1 /* .gitignore */; };
 		1DA9CCF61A71A804006112B1 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA9CCF51A71A804006112B1 /* Client.swift */; };
 		1DA9CCF81A71AAE3006112B1 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA9CCF71A71AAE3006112B1 /* WebViewController.swift */; };
+		1DF296EF1A71B31900B5ADED /* AccessAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DF296EE1A71B31900B5ADED /* AccessAlertView.xib */; };
+		1DF296F11A71B6CD00B5ADED /* AccessAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF296F01A71B6CD00B5ADED /* AccessAlertView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,8 @@
 		1DA9CCEF1A71A380006112B1 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		1DA9CCF51A71A804006112B1 /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		1DA9CCF71A71AAE3006112B1 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		1DF296EE1A71B31900B5ADED /* AccessAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccessAlertView.xib; sourceTree = "<group>"; };
+		1DF296F01A71B6CD00B5ADED /* AccessAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessAlertView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +163,8 @@
 				1D4A0D391A6DC03C0057C68B /* Main.storyboard */,
 				1D9C55CE1A6EFACA000CBA0D /* RepositoryCell.swift */,
 				1D9C55D21A6F0ECD000CBA0D /* UserCell.swift */,
+				1DF296EE1A71B31900B5ADED /* AccessAlertView.xib */,
+				1DF296F01A71B6CD00B5ADED /* AccessAlertView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -262,6 +268,7 @@
 				1D4A0D3B1A6DC03C0057C68B /* Main.storyboard in Resources */,
 				1D4A0D401A6DC03C0057C68B /* LaunchScreen.xib in Resources */,
 				1D4A0D3D1A6DC03C0057C68B /* Images.xcassets in Resources */,
+				1DF296EF1A71B31900B5ADED /* AccessAlertView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +291,7 @@
 				1D9C55CF1A6EFACA000CBA0D /* RepositoryCell.swift in Sources */,
 				1D4A0D5F1A6DCBCA0057C68B /* MenuViewController.swift in Sources */,
 				1D4A0D611A6DD74D0057C68B /* User.swift in Sources */,
+				1DF296F11A71B6CD00B5ADED /* AccessAlertView.swift in Sources */,
 				1D4A0D5B1A6DC5650057C68B /* SearchRepositoryViewController.swift in Sources */,
 				1D9C55D31A6F0ECD000CBA0D /* UserCell.swift in Sources */,
 				1D9C55D51A6F1B73000CBA0D /* UserDetailViewController.swift in Sources */,

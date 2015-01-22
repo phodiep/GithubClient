@@ -28,9 +28,24 @@ class MenuViewController: UITableViewController {
         //refresh navigationController
         self.navigationController?.delegate = nil
 
+
+        
         // get accessToken if nec
         if NetworkController.sharedInstance.accessToken == nil {
-            NetworkController.sharedInstance.requestAccessToken()
+
+            //show Access Alert View controller to warn user of signin req
+            let alertView = NSBundle.mainBundle().loadNibNamed("AccessAlertView", owner: self, options: nil).first as UIView
+            alertView.center = self.view.center
+            alertView.alpha = 0
+            alertView.transform = CGAffineTransformMakeScale(1.5, 1.5)
+            self.view.addSubview(alertView)
+            
+            UIView.animateWithDuration(0.4, delay: 0.5, options: nil, animations: { () -> Void in
+                alertView.alpha = 1
+                alertView.transform = CGAffineTransformMakeScale(1.0, 1.0)
+                }, completion: { (finished) -> Void in
+                    //done
+            })
         }
     }
     

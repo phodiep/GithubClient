@@ -34,9 +34,10 @@ class NetworkController {
         
         if let defaultAccessToken = NSUserDefaults.standardUserDefaults().objectForKey(self.accessTokenDefaultsKey) as? String {
             self.accessToken = defaultAccessToken
-        } else {
-            requestAccessToken()
         }
+//        else {
+//            requestAccessToken()
+//        }
     }
     
     func requestAccessToken() {
