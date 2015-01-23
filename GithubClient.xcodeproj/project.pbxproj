@@ -29,6 +29,7 @@
 		1DA9CCF81A71AAE3006112B1 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA9CCF71A71AAE3006112B1 /* WebViewController.swift */; };
 		1DF296EF1A71B31900B5ADED /* AccessAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DF296EE1A71B31900B5ADED /* AccessAlertView.xib */; };
 		1DF296F11A71B6CD00B5ADED /* AccessAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF296F01A71B6CD00B5ADED /* AccessAlertView.swift */; };
+		1DF296F31A72B1CF00B5ADED /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF296F21A72B1CF00B5ADED /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		1DA9CCF71A71AAE3006112B1 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		1DF296EE1A71B31900B5ADED /* AccessAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccessAlertView.xib; sourceTree = "<group>"; };
 		1DF296F01A71B6CD00B5ADED /* AccessAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessAlertView.swift; sourceTree = "<group>"; };
+		1DF296F21A72B1CF00B5ADED /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +182,7 @@
 				1D9C55D61A7046A9000CBA0D /* ToUserDetailAnimationController.swift */,
 				1D9C55D81A7052B7000CBA0D /* FromUserDetailAnimationController.swift */,
 				1DA9CCF71A71AAE3006112B1 /* WebViewController.swift */,
+				1DF296F21A72B1CF00B5ADED /* ProfileViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 				1D4A0D611A6DD74D0057C68B /* User.swift in Sources */,
 				1DF296F11A71B6CD00B5ADED /* AccessAlertView.swift in Sources */,
 				1D4A0D5B1A6DC5650057C68B /* SearchRepositoryViewController.swift in Sources */,
+				1DF296F31A72B1CF00B5ADED /* ProfileViewController.swift in Sources */,
 				1D9C55D31A6F0ECD000CBA0D /* UserCell.swift in Sources */,
 				1D9C55D51A6F1B73000CBA0D /* UserDetailViewController.swift in Sources */,
 				1DA9CCF61A71A804006112B1 /* Client.swift in Sources */,

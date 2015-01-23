@@ -57,7 +57,6 @@ class SearchUserViewController: UIViewController, UICollectionViewDataSource, UI
     func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
         if toVC is UserDetailViewController {
-            //if seguing to UserDetail
             return ToUserDetailAnimationController()
         }
         

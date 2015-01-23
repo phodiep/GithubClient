@@ -16,7 +16,7 @@ class NetworkController {
     let accessTokenDefaultsKey = "accessToken"
     var accessToken: String?
     
-    let client = Client()
+    let client = Client() //client contains 2 properties... ClientID and ClientSecret
 
     
 
@@ -27,6 +27,7 @@ class NetworkController {
         }
         return Static.instance
     }
+
     
     init() {
         let ephemeralConfig = NSURLSessionConfiguration.ephemeralSessionConfiguration()
@@ -35,18 +36,17 @@ class NetworkController {
         if let defaultAccessToken = NSUserDefaults.standardUserDefaults().objectForKey(self.accessTokenDefaultsKey) as? String {
             self.accessToken = defaultAccessToken
         }
-//        else {
-//            requestAccessToken()
-//        }
     }
+    
     
     func requestAccessToken() {
         let url = "https://github.com/login/oauth/authorize?client_id=\(self.client.clientID)&scope=user,repo"
         UIApplication.sharedApplication().openURL(NSURL(string: url)!)
     }
     
+    
     func handleCallbackURL(url: NSURL) {
-        let code = url.query
+        let code = url.query //string after "?"
         
         // query as part of url string
         let oauthURL = "https://github.com/login/oauth/access_token?\(code!)&client_id=\(self.client.clientID)&client_secret=\(self.client.clientSecret)"
@@ -59,10 +59,10 @@ class NetworkController {
                     switch httpResponse.statusCode {
                     case 200...299:
                         //decode data to NSString
-                        let tokenResponse = NSString(data: data, encoding: NSASCIIStringEncoding)
                         //separate string by "&" ... saving element before 1st "&"
-                        let accessTokenComponent = tokenResponse?.componentsSeparatedByString("&").first as String
                         //separate string by "=" ... saving element after "="
+                        let tokenResponse = NSString(data: data, encoding: NSASCIIStringEncoding)
+                        let accessTokenComponent = tokenResponse?.componentsSeparatedByString("&").first as String
                         let accessToken = accessTokenComponent.componentsSeparatedByString("=").last
                         
                         self.accessToken = accessToken
@@ -71,7 +71,7 @@ class NetworkController {
                         NSUserDefaults.standardUserDefaults().setObject(accessToken!, forKey: self.accessTokenDefaultsKey)
                         NSUserDefaults.standardUserDefaults().synchronize()
                     default:
-                        break
+                        println("\(httpResponse.statusCode)error ... \(error)")
                     }
                 }
             }
@@ -80,44 +80,47 @@ class NetworkController {
         
     }
     
+    func signedRequestWithAuthorizationToken(url: NSURL) -> NSMutableURLRequest {
+        //signed with authorization token to increase rate limit
+        let request = NSMutableURLRequest(URL: url)
+        request.setValue("token \(self.accessToken!)", forHTTPHeaderField: "Authorization")
+        return request
+    }
+    
     
     func fetchRepositoriesForSearchTerm(searchTerm: String, callback: ([Repository]?, String?) -> () ) {
         let url = NSURL(string: "https://api.github.com/search/repositories?q=\(searchTerm)")
         
-//        let url = NSURL(string: "http://127.0.0.1:3000") //Temp Url
-        
-        //sign request w/ authorization token
-        let request = NSMutableURLRequest(URL: url!)
-        request.setValue("token \(self.accessToken!)", forHTTPHeaderField: "Authorization")
-        
+        let request = signedRequestWithAuthorizationToken(url!)
         
         let dataTask = self.urlSession.dataTaskWithRequest(request, completionHandler: { (jsonData, response, error) -> Void in
-            if error == nil {
+            var repos = [Repository]()
+            var errorStr: String?
+
+            if error == nil && jsonData != nil {
                 if let urlResponse = response as? NSHTTPURLResponse {
-                    var repos = [Repository]()
-                    var errorStr: String?
                     
                     switch urlResponse.statusCode {
                     case 200...299:
-                        
                         let jsonDictionary = NSJSONSerialization.JSONObjectWithData(jsonData, options: nil, error: nil) as [String : AnyObject]
                         let repoList = jsonDictionary["items"] as [AnyObject]
-                        
                         for repoData in repoList {
                             let data = repoData as [String: AnyObject]
-                            let repo = Repository(jsonDictionary: data)
-                            repos.append(repo)
+                                let repo = Repository(jsonDictionary: data)
+                                repos.append(repo)
                         }
-                    case 300...599:
-                        errorStr = "\(urlResponse.statusCode)error ... \(error)"
                     default:
-                        errorStr = "default"
+                        errorStr = "\(urlResponse.statusCode)error ... \(error)"
                     }
-                    NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-                        callback(repos, errorStr)
-                    })
                 }
+            } else {
+                print("no data")
             }
+            
+            NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                callback(repos, errorStr)
+            })
+
         })
         dataTask.resume()
     }
@@ -125,32 +128,74 @@ class NetworkController {
     func fetchRepositoriesForUsers(searchUser: String, callback: ([User]?, String?) -> () ) {
         let url = NSURL(string: "https://api.github.com/search/users?q=\(searchUser)" )
 
-        let dataTask = self.urlSession.dataTaskWithURL(url!, completionHandler: { (jsonData, response, error) -> Void in
-            let urlResponse = response as NSHTTPURLResponse
+        let request = signedRequestWithAuthorizationToken(url!)
+
+        let dataTask = self.urlSession.dataTaskWithRequest(request, completionHandler: { (jsonData, response, error) -> Void in
             var users = [User]()
             var errorStr: String?
-
-            switch urlResponse.statusCode {
-            case 200...299:
-                let jsonDictionary = NSJSONSerialization.JSONObjectWithData(jsonData, options: nil, error: nil) as [String : AnyObject]
-                let userList = jsonDictionary["items"] as [AnyObject]
-                for userData in userList {
-                    let data = userData as [String: AnyObject]
-                    let user = User(userDictionary: data)
-                    users.append(user)
+            
+            if error == nil {
+                if let urlResponse = response as? NSHTTPURLResponse {
+                    
+                    switch urlResponse.statusCode {
+                    case 200...299:
+                        let jsonDictionary = NSJSONSerialization.JSONObjectWithData(jsonData, options: nil, error: nil) as [String : AnyObject]
+                        let userList = jsonDictionary["items"] as [AnyObject]
+                        for userData in userList {
+                            let data = userData as [String: AnyObject]
+                            let user = User(userDictionary: data)
+                            users.append(user)
+                        }
+                    default:
+                        errorStr = "\(urlResponse.statusCode)error ... \(error)"
+                    }
                 }
-            case 300...599:
-                errorStr = "\(urlResponse.statusCode)error ... \(error)"
-            default:
-                errorStr = "default"
             }
+            
             NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
                 callback(users, errorStr)
             })
+            
         })
         dataTask.resume()
     }
     
+    func fetchUserProfile(callback: (User?, String?) -> () ) {
+        
+        let url = NSURL(string: "https://api.github.com/user")
+        
+        let request = signedRequestWithAuthorizationToken(url!)
+        
+        let dataTask = self.urlSession.dataTaskWithRequest(request, completionHandler: { (jsonData, response, error) -> Void in
+            var user: User?
+            var errorStr: String?
+            if error == nil {
+                if let urlResponse = response as? NSHTTPURLResponse {
+                    
+                    switch urlResponse.statusCode {
+                    case 200...299:
+                        let userDictionary = NSJSONSerialization.JSONObjectWithData(jsonData, options: nil, error: nil) as [String : AnyObject]
+                        user = User(userDictionary: userDictionary)
+                        user!.updateFullProfile(userDictionary)
+                        
+                    default:
+                        errorStr = "\(urlResponse.statusCode)error ... \(error)"
+                        println(errorStr)
+                    }
+                }
+            }
+            
+            NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                callback(user, errorStr)
+            })
+            
+        })
+        dataTask.resume()
+
+        
+        
+        
+    }
     
     func fetchImage(imageURL: String, completionHandler: (UIImage?) -> () ) {
         self.imageQueue.addOperationWithBlock({ () -> Void in
