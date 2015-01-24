@@ -10,6 +10,8 @@ import UIKit
 
 class FromUserDetailAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
     
+    //this controller does not work <<<------------
+    
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
         return 0.4
     }

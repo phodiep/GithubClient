@@ -59,10 +59,7 @@ class SearchUserViewController: UIViewController, UICollectionViewDataSource, UI
         if toVC is UserDetailViewController {
             return ToUserDetailAnimationController()
         }
-        
-//        if toVC is SearchUserViewController {
-//            return FromUserDetailAnimationController()
-//        }
+
         return nil //default animation
     }
     
