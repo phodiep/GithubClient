@@ -8,6 +8,12 @@
 
 import UIKit
 
+//format for Client.swift file
+//struct Client {
+//    let clientID = ""
+//    let clientSecret = ""
+//}
+
 class NetworkController {
     
     var urlSession: NSURLSession
